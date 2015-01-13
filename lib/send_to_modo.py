@@ -3,6 +3,7 @@ import sys
 import textwrap
 from optparse import OptionParser
 
+'''
 parser = OptionParser()
 parser.add_option("-f", "--file", dest="file", help="The file")
 parser.add_option("-a", "--host", dest="host", help="The host for the connection to Modo")
@@ -12,7 +13,7 @@ parser.add_option("-p", "--port", dest="port", help="The port for the connection
 
 def SendToModo(options):
 
-    PY_CMD_TEMPLATE = textwrap.dedent('''
+    PY_CMD_TEMPLATE = textwrap.dedent(
         import traceback
         import __main__
 
@@ -27,7 +28,7 @@ def SendToModo(options):
             {0}({1!r}, namespace, namespace)
         except:
             traceback.print_exc()
-	''')
+	)
 
     command_tpl = PY_CMD_TEMPLATE.format('execfile', options.file, options.file)
 
@@ -51,3 +52,16 @@ if __name__=='__main__':
         SendToModo(options)
     else:
         sys.exit("No command given")
+'''
+
+import socket
+
+HOST = '127.0.0.1' # the local host
+PORT = 12357 # The same port as used by the server
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((HOST, PORT))
+command = 'item.create locator'
+
+client.sendall('%s\0' % command)
+print client.recv(1024)
