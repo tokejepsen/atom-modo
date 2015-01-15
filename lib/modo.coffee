@@ -10,7 +10,7 @@ module.exports =
     activate: (state) ->
 
         # Set defaults
-        atom.config.setDefaults("modo", host: '127.0.0.1', port: 7005, save_on_run: true )
+        atom.config.setDefaults("modo", host: '127.0.0.1', port: 12357, save_on_run: true )
 
         # Create the status view
         @statusView = new StatusView(state.testViewState)
