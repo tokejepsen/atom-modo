@@ -1,3 +1,0 @@
-telnet.listen 12357 true
-log.subEnable true
-log.toConsole
