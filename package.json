@@ -1,7 +1,7 @@
 {
   "name": "Modo",
   "main": "./lib/modo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Run python scripts from atom to Modo.",
   "activationEvents": [
